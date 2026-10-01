@@ -31,3 +31,13 @@ A teljes statikus weboldal a `dist/` mappában található. Statikus tárhelyen 
 Az önálló másolat alapja a korábbi közös repó `408f8abca5f75df903e1626328cb66d04ad6a8cb` állapotának Navarra aloldala. A weboldal fájljai változatlanul kerültek át; a nem használt képek és a Napi Ige fájljai kimaradtak.
 
 A korábbi közös projekt tárhely-azonosítója szándékosan nem része ennek a repónak. A repó létrehozása önmagában nem változtatja meg a meglévő élő oldal címét vagy tárhelyét.
+
+## Támogatószámláló bekötése
+
+A Támogatás szakasz számlálója adatkapcsolat nélkül gondolatjelet és „hamarosan elérhető” állapotot mutat, nem nullát vagy mintaadatot. A bekötéshez az `index.html` fájl `#supporterCounter` elemén töltsd ki a `data-endpoint` értékét a tényleges, nyilvánosan olvasható JSON-végpont URL-jével.
+
+Elvárt válaszformátum: `{"supporterCount": 1234}`. A szám nem negatív, biztonságosan ábrázolható egész JavaScript-szám legyen. Ez a példa nem valós támogatói adat.
+
+A végpont a támogatók összesített számát adja, nem az adományok összegét vagy tranzakciószámát. A belső rendszerben kell meghatározni az egyedi támogatók számolását. Csak összesített adat kerüljön a nyilvános válaszba, személyes adat ne. A belső rendszer hitelesítését szerveroldali átjáró végezze; API-kulcsot vagy belső belépési adatot tilos a weboldalba tenni. Más domain esetén megfelelő CORS-beállítás szükséges.
+
+A számláló az oldal megnyitásakor és látható böngészőlapon 60 másodpercenként frissül. A kérés 10 másodperc után megszakad. Hibánál az utolsó sikeres érték megmarad, jól látható állapotjelzéssel. A kijelzett frissítési idő a sikeres lekérés ideje. A funkció külön `supporters.js` fájlban van, a számjegyformátum és a mobilos megjelenés a `supporters.css` fájlban.

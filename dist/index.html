@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="styles.css?v=9">
   <link rel="stylesheet" href="voxdei-chrome.css?v=3">
   <link rel="stylesheet" href="responsive.css?v=3">
+  <link rel="stylesheet" href="supporters.css?v=1">
 </head>
 <body>
   <a class="skip-link" href="#main">Ugrás a tartalomra</a>
@@ -115,6 +116,18 @@
           <li>Méltó kivitelben tudjuk kiadni az egyes köteteket.</li>
         </ul>
       </div>
+
+      <aside class="supporter-counter section" id="supporterCounter" data-endpoint="" aria-labelledby="supporterCounterTitle">
+        <div class="supporter-counter-copy">
+          <p class="eyebrow">Együtt a Biblia kiadásáért</p>
+          <h3 id="supporterCounterTitle">Eddigi támogatóink</h3>
+          <p>Köszönjük mindenkinek, aki hozzájárul a Navarra Biblia kiadásához.</p>
+        </div>
+        <div class="supporter-counter-result" role="status" aria-live="polite" aria-atomic="true">
+          <p class="supporter-total"><strong id="supporterCount" aria-label="A támogatók száma még nem elérhető">—</strong><span>támogató</span></p>
+          <p id="supporterStatus">A támogatók száma hamarosan elérhető.</p>
+        </div>
+      </aside>
 
       <div class="collection section">
         <figure class="collection-visual">
@@ -247,5 +260,6 @@
   </footer>
 
   <script src="app.js?v=7"></script>
+  <script src="supporters.js?v=1"></script>
 </body>
 </html>
