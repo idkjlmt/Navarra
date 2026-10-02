@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="styles.css?v=9">
   <link rel="stylesheet" href="voxdei-chrome.css?v=3">
   <link rel="stylesheet" href="responsive.css?v=3">
-  <link rel="stylesheet" href="supporters.css?v=1">
+  <link rel="stylesheet" href="supporters.css?v=2">
 </head>
 <body>
   <a class="skip-link" href="#main">Ugrás a tartalomra</a>
@@ -89,9 +89,9 @@
         <h2 id="pricing-title">Minél többen vagyunk, <span>annál kevesebbe kerül.</span></h2>
         <p>Az előrendelők száma közösen alakítja a végleges árat. Minden csatlakozó közelebb visz a következő árszinthez.</p>
       </div>
-      <div class="community-status" aria-label="Az élő előrendelői számláló helye">
-        <div><span class="status-label">Előrendelői létszám</span><strong>Hamarosan élőben</strong></div>
-        <p>Az automatikusan frissülő számláló az előrendelési rendszer csatlakoztatása után jelenik meg.</p>
+      <div class="community-status" id="supporterCounter" data-endpoint="" role="status" aria-live="polite" aria-atomic="true" aria-label="Eddigi támogatóink száma">
+        <div><span class="status-label">Eddigi támogatóink</span><strong><span id="supporterCount" aria-label="A támogatók száma még nem elérhető">—</span> támogató</strong></div>
+        <p id="supporterStatus">A támogatók száma hamarosan elérhető.</p>
       </div>
       <div class="price-scale" role="list" aria-label="Közösségi árszintek">
         <article role="listitem"><span class="dot"></span><strong>1 000</strong><small>előrendelő</small><b>13 980 Ft</b></article>
@@ -101,6 +101,10 @@
         <article role="listitem" class="goal"><span class="dot"></span><strong>5 000</strong><small>előrendelő</small><b>6 980 Ft</b></article>
       </div>
       <p class="pricing-note">A végleges vételár a kampány lezárásakor elért közösségi árszint szerint alakul.</p>
+      <div class="publication-dates">
+        <p>A Navarra Biblia Újszövetség kötet első kiadásához a rendelések fogadásának határideje: <strong>2026. november 15.</strong> Ez egyben a nyomda felé az igényelt példányszám leadásának időpontja.</p>
+        <p>Nyomdai munkák befejezésének várható időpontja: <strong>2027. február.</strong> A megrendelt könyvek várható kiszállítása: <strong>2027. március 10.</strong></p>
+      </div>
       <a class="button centered-cta" href="https://www.ewtn.shop/">Megrendelem az EWTN Shopban →</a>
     </section>
 
@@ -117,21 +121,21 @@
         </ul>
       </div>
 
-      <aside class="supporter-counter section" id="supporterCounter" data-endpoint="" aria-labelledby="supporterCounterTitle">
+      <aside class="supporter-counter section" id="donationCounter" aria-labelledby="supporterCounterTitle">
         <div class="supporter-counter-copy">
           <p class="eyebrow">Együtt a Biblia kiadásáért</p>
-          <h3 id="supporterCounterTitle">Eddigi támogatóink</h3>
+          <h3 id="supporterCounterTitle">Eddig összegyűlt támogatás</h3>
           <p>Köszönjük mindenkinek, aki hozzájárul a Navarra Biblia kiadásához.</p>
         </div>
         <div class="supporter-counter-result" role="status" aria-live="polite" aria-atomic="true">
-          <p class="supporter-total"><strong id="supporterCount" aria-label="A támogatók száma még nem elérhető">—</strong><span>támogató</span></p>
-          <p id="supporterStatus">A támogatók száma hamarosan elérhető.</p>
+          <p class="supporter-total"><strong id="donationAmount" aria-label="A támogatások összege még nem elérhető">—</strong><span>Ft</span></p>
+          <p id="donationStatus">A támogatások összege hamarosan elérhető.</p>
         </div>
       </aside>
 
       <div class="collection section">
         <figure class="collection-visual">
-          <img src="assets/navarra-five-supplied.jpg" alt="A Navarra Biblia tervezett ötkötetes sorozata fekete, kék, zöld, bordó és fehér kötésben" width="1536" height="1024" loading="lazy" decoding="async">
+          <img src="assets/navarra-five-20261003.jpg" alt="A Navarra Biblia tervezett ötkötetes sorozata fekete, kék, zöld, bordó és fehér kötésben" width="1536" height="1024" loading="lazy" decoding="async">
         </figure>
         <div class="volume-list" aria-label="A Navarra Biblia öt kötete">
           <p class="volume black"><b>I.</b> Mózes öt könyve</p>
@@ -254,12 +258,11 @@
     <div class="footer-container"><div class="footer-top">
       <a class="footer-logo" href="https://voxdei.app/" aria-label="Vox Dei kezdőlap"><svg viewBox="0 0 155 58" fill="none" aria-hidden="true"><text x="10" y="40" fill="white" font-size="28" font-family="Raleway, sans-serif" font-weight="bold">VOX DEI</text></svg></a>
       <div class="footer-menu"><a href="https://voxdei.app/rolunk">Rólunk</a><a href="https://voxdei.app/gyik">GYIK</a><a href="https://voxdei.app/settings">Beállítások</a><a href="https://voxdei.app/jogi-dokumentumok">Jogi dokumentumok</a><a href="https://voxdei.app/contact">Kapcsolat</a></div>
-      <div class="footer-menu footer-menu-col-2"><a class="footer-link-button" href="https://voxdei.app/" title="Napi idézet a Vox Dei oldalán">Napi idézet</a><a href="https://voxdei.app/daily-prayer/7">Napi rózsafüzér</a><a href="https://voxdei.app/daily-prayer/4">Nap szentje</a><a href="https://voxdei.app/post/27">Imádkozz minden nap! - Így kezdd el!</a><a href="https://voxdei.app/post/26">Vox Dei - Isten hangja az életünkben</a></div>
       <div class="footer-social"><div class="copyright">Copyright © PATE</div><div class="footer-social-icons"></div><div class="footer-app-buttons"></div></div>
     </div></div>
   </footer>
 
   <script src="app.js?v=7"></script>
-  <script src="supporters.js?v=1"></script>
+  <script src="supporters.js?v=2"></script>
 </body>
 </html>

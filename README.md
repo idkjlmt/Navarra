@@ -34,10 +34,10 @@ A korábbi közös projekt tárhely-azonosítója szándékosan nem része ennek
 
 ## Támogatószámláló bekötése
 
-A Támogatás szakasz számlálója adatkapcsolat nélkül gondolatjelet és „hamarosan elérhető” állapotot mutat, nem nullát vagy mintaadatot. A bekötéshez az `index.html` fájl `#supporterCounter` elemén töltsd ki a `data-endpoint` értékét a tényleges, nyilvánosan olvasható JSON-végpont URL-jével.
+A Közösségi kiadás szakasz a támogatók számát, a Támogatás szakasz az összegyűlt támogatást mutatja. Adatkapcsolat nélkül mindkettő gondolatjelet és „hamarosan elérhető” állapotot mutat, nem nullát vagy mintaadatot. A bekötéshez az `index.html` fájl `#supporterCounter` elemén töltsd ki a `data-endpoint` értékét a tényleges, nyilvánosan olvasható JSON-végpont URL-jével.
 
-Elvárt válaszformátum: `{"supporterCount": 1234}`. A szám nem negatív, biztonságosan ábrázolható egész JavaScript-szám legyen. Ez a példa nem valós támogatói adat.
+Elvárt válaszformátum: `{"supporterCount": 1234, "donationTotalHuf": 12345678}`. Mindkét mező kötelező, nem negatív, biztonságosan ábrázolható egész JavaScript-szám. A `donationTotalHuf` egész forintban értendő. Ez a példa nem valós támogatói adat. Egy közös lekérés frissíti mindkét kijelzőt; hibás vagy hiányzó mező esetén egyik értéket sem írja felül.
 
-A végpont a támogatók összesített számát adja, nem az adományok összegét vagy tranzakciószámát. A belső rendszerben kell meghatározni az egyedi támogatók számolását. Csak összesített adat kerüljön a nyilvános válaszba, személyes adat ne. A belső rendszer hitelesítését szerveroldali átjáró végezze; API-kulcsot vagy belső belépési adatot tilos a weboldalba tenni. Más domain esetén megfelelő CORS-beállítás szükséges.
+A végpont külön mezőben adja a támogatók számát és a támogatások összegét. A belső rendszerben kell meghatározni az egyedi támogatók számolását. Csak összesített adat kerüljön a nyilvános válaszba, személyes adat ne. A belső rendszer hitelesítését szerveroldali átjáró végezze; API-kulcsot vagy belső belépési adatot tilos a weboldalba tenni. Más domain esetén megfelelő CORS-beállítás szükséges.
 
 A számláló az oldal megnyitásakor és látható böngészőlapon 60 másodpercenként frissül. A kérés 10 másodperc után megszakad. Hibánál az utolsó sikeres érték megmarad, jól látható állapotjelzéssel. A kijelzett frissítési idő a sikeres lekérés ideje. A funkció külön `supporters.js` fájlban van, a számjegyformátum és a mobilos megjelenés a `supporters.css` fájlban.

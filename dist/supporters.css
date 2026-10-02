@@ -15,7 +15,12 @@
 .supporter-total { margin: 0; display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: baseline; gap: 8px 12px; }
 .supporter-total strong { max-width: 100%; overflow-wrap: anywhere; color: var(--red); font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.15; letter-spacing: 0; }
 .supporter-total span { font-size: 1rem; font-weight: 700; }
-#supporterStatus { margin: 12px 0 0; color: var(--muted); font-size: .875rem; }
+#donationStatus { margin: 12px 0 0; color: var(--muted); font-size: .875rem; }
+.community-status > div { min-width: 0; }
+.community-status strong { overflow-wrap: anywhere; }
+.publication-dates { margin: 0 0 30px; padding: 22px 24px; border-left: 3px solid var(--red); background: var(--soft); border-radius: 0 14px 14px 0; }
+.publication-dates p { margin: 0; }
+.publication-dates p + p { margin-top: 12px; }
 @media (max-width: 760px) {
   .supporter-counter { grid-template-columns: minmax(0, 1fr); gap: 24px; padding: 24px 20px; }
   .supporter-counter-result { text-align: left; border-top: 1px solid var(--line); padding-top: 20px; }
