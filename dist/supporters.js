@@ -4,7 +4,7 @@
   const endpoint = counter.dataset.endpoint.trim();
   // No placeholder statistics and no requests until a public aggregate endpoint is configured.
   if (!endpoint) return;
-  const count = document.getElementById('supporterCount');
+  const count = document.getElementById('preorderCount');
   const status = document.getElementById('supporterStatus');
   const amount = document.getElementById('donationAmount');
   const amountStatus = document.getElementById('donationStatus');
@@ -19,7 +19,7 @@
     if (inFlight || document.hidden) return;
     inFlight = true;
     if (!hasValue) {
-      status.textContent = 'Támogatók számának betöltése…';
+      status.textContent = 'Előrendelők számának betöltése…';
       amountStatus.textContent = 'Támogatások összegének betöltése…';
     }
     const controller = new AbortController();
@@ -28,9 +28,9 @@
       const response = await fetch(endpoint, { cache: 'no-store', credentials: 'omit', signal: controller.signal, headers: { Accept: 'application/json' } });
       if (!response.ok) throw new Error('Request failed');
       const data = await response.json();
-      if (!Number.isSafeInteger(data?.supporterCount) || data.supporterCount < 0) throw new Error('Invalid count');
+      if (!Number.isSafeInteger(data?.preorderCount) || data.preorderCount < 0) throw new Error('Invalid count');
       if (!Number.isSafeInteger(data?.donationTotalHuf) || data.donationTotalHuf < 0) throw new Error('Invalid amount');
-      count.textContent = format.format(data.supporterCount);
+      count.textContent = format.format(data.preorderCount);
       count.removeAttribute('aria-label');
       amount.textContent = format.format(data.donationTotalHuf);
       amount.removeAttribute('aria-label');
@@ -41,7 +41,7 @@
     } catch {
       status.textContent = hasValue
         ? `A frissítés átmenetileg nem elérhető. Utolsó sikeres frissítés: ${lastSuccess}.`
-        : 'A támogatók száma átmenetileg nem elérhető.';
+        : 'Az előrendelők száma átmenetileg nem elérhető.';
       amountStatus.textContent = hasValue ? status.textContent : 'A támogatások összege átmenetileg nem elérhető.';
     } finally {
       clearTimeout(timeout);
