@@ -9,6 +9,16 @@
   const amount = document.getElementById('donationAmount');
   const amountStatus = document.getElementById('donationStatus');
   const format = new Intl.NumberFormat('hu-HU');
+  const tiers = [...document.querySelectorAll('.price-scale [data-threshold]')];
+  function updatePriceTier(preorders) {
+    const active = tiers.reduce((current, tier) =>
+      preorders >= Number(tier.dataset.threshold) ? tier : current, tiers[0]);
+    tiers.forEach(tier => {
+      tier.classList.toggle('goal', tier === active);
+      if (tier === active) tier.setAttribute('aria-current', 'true');
+      else tier.removeAttribute('aria-current');
+    });
+  }
   let timer;
   let inFlight = false;
   let hasValue = false;
@@ -34,6 +44,7 @@
       count.removeAttribute('aria-label');
       amount.textContent = format.format(data.donationTotalHuf);
       amount.removeAttribute('aria-label');
+      updatePriceTier(data.preorderCount);
       hasValue = true;
       lastSuccess = new Date().toLocaleTimeString('hu-HU', { hour: '2-digit', minute: '2-digit' });
       status.textContent = `Legutóbbi frissítés: ${lastSuccess}. Automatikusan frissül.`;
