@@ -1,0 +1,32 @@
+.faq-section { padding-block: 80px; scroll-margin-top: 90px; }
+.faq-section h2 { margin: 0 0 36px; }
+.faq-list { display: grid; gap: 12px; }
+.faq-list details { border: 1px solid var(--line); border-radius: 16px; background: var(--soft); overflow: hidden; }
+.faq-list summary { position: relative; list-style: none; cursor: pointer; padding: 22px 64px 22px 26px; font-size: 18px; font-weight: 700; line-height: 1.45; }
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::after { content: '+'; position: absolute; right: 25px; top: 18px; color: var(--red); font-size: 28px; font-weight: 500; }
+.faq-list details[open] summary::after { content: '−'; }
+.faq-list details[open] { background: white; border-color: var(--red); }
+.faq-list summary:focus-visible, .community-phone:focus-visible { outline: 3px solid var(--red-dark); outline-offset: -4px; }
+.faq-answer { padding: 0 26px 24px; max-width: 980px; overflow-wrap: anywhere; }
+.faq-answer p { margin: 0; }
+.faq-answer ul, .faq-answer ol { margin: 12px 0 0; padding-left: 24px; }
+.faq-answer a { color: var(--red-dark); text-underline-offset: 3px; }
+.community-contact { margin-top: 40px; padding: 32px; border-radius: 24px; background: var(--red); color: white; display: flex; align-items: center; gap: 24px; }
+.community-contact-icon { flex: 0 0 72px; width: 72px; height: 72px; overflow: hidden; }
+.community-contact-icon img { width: 170px; max-width: none; height: auto; transform: translate(-49px, -10px); }
+.community-contact-copy { flex: 1; min-width: 0; }
+.community-contact h3 { margin: 0 0 6px; font-size: 24px; line-height: 1.3; }
+.community-contact p { margin: 0; }
+.community-phone { flex-shrink: 0; white-space: nowrap; font-size: 20px; font-variant-numeric: lining-nums tabular-nums; }
+@media (max-width: 700px) {
+  .faq-section { padding-block: 48px; }
+  .faq-list summary { font-size: 16px; padding: 20px 48px 20px 18px; }
+  .faq-list summary::after { right: 18px; top: 15px; }
+  .faq-answer { padding: 0 18px 20px; }
+  .community-contact { padding: 24px 20px; flex-wrap: wrap; gap: 18px; }
+  .community-contact-icon { flex-basis: 56px; width: 56px; height: 64px; }
+  .community-contact-icon img { width: 145px; transform: translate(-44px, -7px); }
+  .community-contact h3 { font-size: 21px; }
+  .community-phone { width: 100%; justify-content: center; font-size: 20px; }
+}

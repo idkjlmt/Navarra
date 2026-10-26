@@ -1,0 +1,18 @@
+const { readFileSync, existsSync } = require('node:fs');
+const { join } = require('node:path');
+const assert = require('node:assert/strict');
+const root = join(__dirname, '../dist');
+const html = readFileSync(join(root, 'index.html'), 'utf8');
+const faq = html.split('id="gyik"')[1].split('</main>')[0];
+assert.equal((faq.match(/<details>/g) || []).length, 17);
+assert.equal((faq.match(/<summary>/g) || []).length, 17);
+assert.equal((faq.match(/class="faq-answer"/g) || []).length, 17);
+assert.ok(!faq.includes('<details open'));
+assert.match(faq, /href="tel:\+3617808085"/);
+assert.match(faq, /06 1 780 80 85/);
+assert.match(faq, /EWTN Közösségszolgálat/);
+assert.ok(existsSync(join(root, 'assets/telefon-alap-feher.png')));
+assert.equal((html.match(/2026\. november 30\./g) || []).length, 2);
+assert.ok(!html.includes('november 15.'));
+assert.ok(html.indexOf('id="gyik"') < html.indexOf('<footer class="footer">'));
+console.log('PASS: 17 native accordions, phone link, supplied icon, consistent deadline, footer placement.');
